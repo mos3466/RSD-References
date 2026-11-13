@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="RSD: AI-assisted metro violation detection, RFID trip management, human review, prototype results, and references." name="description"/><title>RSD | Project Documentation &amp; References</title><style>
+:root{--green:#174b36;--green2:#2c7655;--cream:#f8faf5;--ink:#192c23;--muted:#5b6e64;--line:#dbe7dd;--orange:#dc9741}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,Arial,sans-serif}a{color:var(--green2)}.hero{background:linear-gradient(125deg,#103e2d,#286c4c);color:#fff;padding:52px max(24px,calc((100vw - 1100px)/2)) 48px}.eyebrow{letter-spacing:.13em;font-size:12px;font-weight:700;color:#c7e9d2}.hero h1{font-size:clamp(32px,5vw,58px);margin:10px 0}.hero p{max-width:750px;color:#e2f0e6}.pill{display:inline-block;border:1px solid #a7cbb6;border-radius:99px;padding:5px 13px;font-size:13px;margin:7px 8px 0 0}.nav{position:sticky;top:0;z-index:3;background:#fff;box-shadow:0 2px 14px #193b2a12;overflow:auto;white-space:nowrap;padding:13px max(24px,calc((100vw - 1100px)/2));display:flex;gap:20px}.nav a{text-decoration:none;font-size:13px;font-weight:650;color:var(--green)}main{max-width:1100px;margin:auto;padding:28px 24px 70px}.section{padding:24px 0;border-bottom:1px solid var(--line);scroll-margin-top:65px}.section h2{font-size:26px;color:var(--green);margin:0 0 14px}.section h3{font-size:18px;margin:16px 0 6px}.intro{max-width:850px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:0 4px 15px #163c2610}.card h3{margin:0 0 6px;color:var(--green)}.number{font-size:40px;font-weight:800;line-height:1.15;color:var(--green)}.note{background:#edf4ec;border-left:4px solid var(--green2);padding:13px 17px;border-radius:6px;margin:15px 0}.warning{background:#fff7e9;border-left:4px solid var(--orange);padding:13px 17px;border-radius:6px;margin:15px 0}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.step{background:#e7f0e9;border:1px solid #d2e4d5;border-radius:12px;padding:13px 8px;text-align:center;font-size:13px;font-weight:700}.step small{display:block;font-weight:400;margin-top:4px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;background:#fff;border-radius:10px;overflow:hidden}td,th{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#e6efe8;color:var(--green)}ul{padding-left:22px}li{margin-bottom:7px}.ref{padding:14px 0;border-bottom:1px solid var(--line)}.ref strong{display:block}.footer{padding:25px;text-align:center;background:#123d2d;color:#d9e8dd;font-size:13px}@media(max-width:750px){.grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.hero{padding:34px 24px}.section h2{font-size:23px}}@media print{.nav{display:none}.hero{background:#174b36!important;print-color-adjust:exact}.card{break-inside:avoid}}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:20px}.team-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 16px #193b2a0a}.team-avatar{display:grid;place-items:center;background:#e9f2e9;color:var(--green);border-radius:13px;width:46px;height:46px;font-size:20px;font-weight:800}.team-card h3{margin:3px 0 0;color:var(--green);font-size:18px}.team-ar{color:var(--muted);font-size:14px}.linkedin-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding:10px 13px;border-radius:9px;background:var(--green);color:#fff;text-decoration:none;font-size:13px;font-weight:700;justify-content:center}.linkedin-link:hover,.linkedin-link:focus-visible{background:var(--green2)}.linkedin-link svg{width:16px;height:16px;fill:currentColor}
+/* RSD 2026 visual refresh */
+:root{--green:#173e32;--green2:#55785c;--cream:#f6f4ec;--ink:#1e3028;--muted:#657268;--line:#e4e5d9;--orange:#c99a52}
+body{background:radial-gradient(ellipse 65% 20% at 100% 0%,#e8e9d7 0%,transparent 100%),var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:-.012em}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 85% 5%,#567c5d 0%,transparent 36%),linear-gradient(125deg,#102c25,#244b37 70%,#32553c);padding-top:90px;padding-bottom:90px;border-bottom:5px solid #c7a16a}
+.hero:after{content:'RSD';position:absolute;right:-.02em;bottom:-.35em;font-size:clamp(150px,30vw,430px);font-weight:900;letter-spacing:-.12em;color:#ffffff08;pointer-events:none}
+.hero h1{font-size:clamp(55px,9vw,104px);line-height:1.02;letter-spacing:-.065em;position:relative;z-index:1}
+.hero h1 span{font-size:.43em;letter-spacing:0;color:#d7e2d5}
+.hero p{font-size:clamp(16px,1.8vw,21px);max-width:780px;position:relative;z-index:1}
+.hero p:first-of-type{color:#fff}
+.eyebrow{color:#d7bf89;font-size:12px;letter-spacing:.2em}
+.pill{border-color:#b3bba2;color:#f0ead7;background:#ffffff0c;backdrop-filter:blur(4px)}
+.nav{background:#fbfaf5eF;backdrop-filter:blur(18px);border-bottom:1px solid var(--line);box-shadow:0 5px 22px #1c34230a;gap:25px}
+.nav a{transition:color .2s}.nav a:hover{color:#b0833e}
+main{max-width:1180px;padding-top:18px}
+.section{padding:62px 0;scroll-margin-top:76px}
+.section h2{font-size:clamp(27px,3.5vw,40px);letter-spacing:-.045em;margin-bottom:23px;line-height:1.18}
+.section h2:first-letter{color:#b88a4a}
+.section h3{font-size:19px;letter-spacing:-.025em}
+.intro,.section>p{font-size:16.5px;line-height:1.85}
+.grid{gap:18px}.card{border-radius:21px;padding:27px;background:linear-gradient(145deg,#fff,#fcfcf7);box-shadow:0 13px 30px #253e2c0b;transition:transform .2s,box-shadow .2s;border:1px solid #e6e9dc}
+.card:hover,.team-card:hover{transform:translateY(-4px);box-shadow:0 20px 35px #253e2c17}
+.card h3{font-size:20px}.number{font-size:clamp(48px,6vw,76px);letter-spacing:-.06em;color:#234e3a}
+#results .card:nth-child(2){background:linear-gradient(150deg,#234b38,#356e4d);border-color:#234b38;color:white}
+#results .card:nth-child(2) .number{color:#f4d8a0}
+#results .card strong{font-size:14px}
+.step{border-radius:16px;padding:19px 10px;background:#e9eee4;border:1px solid #d7e0d1;position:relative}
+.step:before{content:'';display:block;width:7px;height:7px;background:#b9945a;border-radius:50%;margin:0 auto 10px}
+.step small{color:#647569}
+.note{border-radius:12px;background:#e8eee3;border-left-color:#52775d;padding:18px 22px}
+.warning{border-radius:12px;background:#fbf2e3;border-left-color:#c69a5a;padding:18px 22px}
+.tablewrap{border:1px solid #e0e7da;border-radius:17px;overflow:auto;box-shadow:0 10px 25px #253e2c09}
+table{border-radius:17px}th{background:#dfe9dd}td,th{padding:17px 19px}
+.team-card{border-radius:21px;padding:27px;transition:transform .2s,box-shadow .2s;box-shadow:0 13px 30px #253e2c0b}
+.team-avatar{height:58px;width:58px;border-radius:17px;background:#e5ebdf;font-size:22px}
+.linkedin-link{background:#1c4d38;border-radius:12px;padding:13px 16px}
+.ref{background:#fff;border:1px solid #e4e8dd;border-radius:13px;padding:18px 20px;margin-bottom:11px;overflow-wrap:anywhere}
+.footer{padding:36px;background:#112d25}
+@media(max-width:750px){.hero{padding:60px 24px 65px}.section{padding:42px 0}.grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:23px}.hero:after{font-size:180px;bottom:-.2em}.nav{gap:19px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+/* RSD EDITORIAL / immersive visual identity */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--green:#17392d;--green2:#446c4d;--cream:#f7f5ee;--ink:#1d3027;--muted:#6c776c;--line:#dedfd2;--orange:#d7ae6a}
+html{scroll-padding-top:90px}body{background:#f7f5ee;color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;letter-spacing:0}::selection{background:#d7ae6a;color:#16372b}
+.hero{background:#102b22;min-height:710px;padding:0;border:0;isolation:isolate}.hero:after{display:none}.hero:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 46%,#426f4b4a,transparent 40%),repeating-linear-gradient(0deg,transparent 0 59px,#ffffff08 60px),repeating-linear-gradient(90deg,transparent 0 59px,#ffffff08 60px);pointer-events:none;z-index:-1}
+.hero-inner{max-width:1320px;margin:auto;min-height:645px;padding:94px 45px 55px;display:grid;grid-template-columns:1.04fr .96fr;gap:30px;align-items:center}.hero-copy{position:relative;z-index:2}.hero .eyebrow{display:inline-flex;align-items:center;gap:11px;border:1px solid #ffffff38;border-radius:100px;padding:8px 15px;color:#e7d8b6;font-size:10px;letter-spacing:.17em}.live-dot,.signal{height:7px;width:7px;border-radius:50%;background:#d9b878;box-shadow:0 0 0 5px #d9b87822;display:inline-block}.hero-kicker{font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.22em;color:#a9c4aa;margin-top:35px}.hero h1{display:flex;align-items:baseline;gap:22px;margin:12px 0 12px;line-height:.9;letter-spacing:-.08em}.hero-name{font:700 clamp(95px,13vw,175px)/.9 'Space Grotesk',sans-serif;color:#f9f6e9;letter-spacing:-.095em}.hero-star{font-size:.32em;vertical-align:top;color:#d4ad68;display:inline-block;margin-left:8px;animation:starturn 28s linear infinite}.hero-ar{font-size:clamp(28px,4vw,48px)!important;color:#d7bd8e!important;letter-spacing:0!important;font-weight:600}.hero-lead{font:500 clamp(24px,3vw,36px)/1.2 'Space Grotesk',sans-serif;color:#f6f3e9!important;max-width:540px;margin:26px 0 14px}.hero-description{font-size:15px!important;color:#b9d0c1!important;line-height:1.85;max-width:510px!important}.hero-actions{display:flex;align-items:center;gap:25px;flex-wrap:wrap;margin-top:30px}.hero-button{background:#d9b477;color:#17372b;text-decoration:none;font-weight:700;padding:15px 22px;border-radius:7px;display:inline-flex;gap:26px;align-items:center;transition:transform .2s,background .2s}.hero-button:hover{transform:translateY(-3px);background:#efcf95}.hero-ghost{color:#e4e9df;text-decoration:none;font-size:13px;border-bottom:1px solid #ffffff60;padding-bottom:5px}.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:43px}.hero-tags span{font-size:9px;font-weight:700;letter-spacing:.15em;color:#a8c5b0;border:1px solid #6d907657;padding:8px 12px;border-radius:3px}
+.hero-visual{position:relative;aspect-ratio:1;max-width:570px;width:100%;margin:auto;display:grid;place-items:center}.visual-orbit{position:absolute;border:1px solid #a3bf9b46;border-radius:50%;aspect-ratio:1}.orbit-one{width:96%;animation:orbit 50s linear infinite}.orbit-two{width:76%;border-style:dashed;animation:orbit 40s linear infinite reverse}.orbit-three{width:56%;border-color:#c6a66c78}.orbit-one:after,.orbit-two:after{content:'';position:absolute;top:50%;left:-4px;width:8px;height:8px;background:#e4c18b;border-radius:50%}.visual-core{width:42%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 25%,#416f4d,#214535 62%,#142e26);border:1px solid #d6b981a3;box-shadow:0 0 0 12px #c5aa7040,0 0 0 30px #b3c89a12,0 0 80px #c0d29d18;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:1}.core-small{font-size:7px;letter-spacing:.16em;color:#d2d6b6}.core-rsd{font:700 clamp(50px,6vw,83px)/1.1 'Space Grotesk',sans-serif;color:#f9f3de;letter-spacing:-.09em}.core-sub{font-size:8px;letter-spacing:.13em;color:#dfc391}.visual-label{position:absolute;background:#173c30eF;border:1px solid #8aa58d70;border-radius:5px;padding:12px 15px;font:600 10px 'Space Grotesk',sans-serif;letter-spacing:.1em;color:#e8eee2;z-index:2;box-shadow:0 15px 40px #08180f5e}.visual-label-top{right:-2%;top:23%}.visual-label-bottom{left:-2%;bottom:22%}.visual-label-bottom b{color:#e4c18b;margin-left:15px}.visual-crosshair{position:absolute;right:17%;bottom:13%;color:#d6b478;font-size:38px;font-weight:100}.visual-coordinate{position:absolute;top:10%;left:12%;font-size:9px;letter-spacing:.18em;color:#aec6af}.hero-bottom{border-top:1px solid #ffffff20;max-width:1320px;margin:auto;display:flex;justify-content:space-between;padding:19px 45px 24px;color:#a4bda7;font-size:10px;letter-spacing:.17em;font-weight:700}
+.nav{background:#f7f5eef2;box-shadow:none;border-bottom:1px solid #dfe2d5;padding:14px max(24px,calc((100vw - 1280px)/2));gap:23px;align-items:center}.nav-brand{font:700 24px 'Space Grotesk',sans-serif!important;letter-spacing:-.09em!important;color:#17392d!important;margin-right:auto}.nav-brand span,.footer-logo span{color:#c39b5b}.nav a:not(.nav-brand){font-size:12px;letter-spacing:.015em;font-weight:700}.nav a:hover{color:#a27837!important}
+main{max-width:1240px;padding:0 36px 100px}.section{padding:90px 0 85px;border-color:#dedfd2}.section-overline{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:800;letter-spacing:.18em;color:#9d8255;margin-bottom:17px}.section-rule{width:31px;height:1px;background:#b99a65}.section h2{font:700 clamp(32px,4vw,51px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-.055em;color:#1b3e2f;max-width:820px;margin-bottom:28px}.section h2:first-letter{color:inherit}.section h3{font-family:'Space Grotesk',sans-serif}.intro,.section>p{max-width:900px;color:#4f6055;font-size:17px;line-height:1.9}.grid{gap:17px}.card{background:#fffefb;border:1px solid #e2e4d8;border-radius:10px;box-shadow:none;padding:29px;position:relative;overflow:hidden}.card:before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#b9a073,#b9a073 26%,transparent 26%)}.card h3{color:#254a37;font-size:19px}.card p{color:#647065;font-size:14.5px;line-height:1.85}.card:hover,.team-card:hover{transform:translateY(-5px);box-shadow:0 15px 32px #1e3d2810}.number{font:700 clamp(54px,7vw,90px)/1.1 'Space Grotesk',sans-serif;color:#234e3a;letter-spacing:-.08em}.flow{gap:9px}.step{min-height:132px;border-radius:9px;background:#e8ede3;border:1px solid #d9e2d3;padding:22px 9px;font-size:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}.step:before{height:8px;width:8px}.step small{line-height:1.5}.note,.warning{border-radius:7px;padding:20px 23px}.tablewrap{border-radius:9px}.team-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.team-card{border-radius:9px;background:#fffefb;box-shadow:none;padding:24px;min-height:235px}.team-avatar{background:#1d4734;color:#e7c58d;width:57px;height:57px;border-radius:50%;font-family:'Space Grotesk',sans-serif}.team-card h3{font-size:18px;line-height:1.4}.linkedin-link{border-radius:5px;background:#1d4734}.linkedin-link:hover{background:#326648}.ref{border-radius:8px;background:#fffefb;transition:transform .2s}.ref:hover{transform:translateX(4px)}
+.results-visual{margin-top:22px;display:grid;grid-template-columns:300px 1fr;gap:35px;align-items:center;padding:35px;background:#1c4030;color:#fff;border-radius:11px;overflow:hidden;position:relative}.results-visual:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 0 0,#b7a06b26,transparent 50%);pointer-events:none}.results-chart{display:grid;place-items:center}.chart-ring{width:235px;height:235px;border-radius:50%;background:conic-gradient(#d8b779 0 88.5%,#54755c 88.5% 100%);display:grid;place-items:center;transform:rotate(-90deg)}.chart-inner{width:175px;height:175px;background:#1c4030;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;transform:rotate(90deg)}.chart-inner strong{font:700 49px 'Space Grotesk',sans-serif;letter-spacing:-.07em}.chart-inner strong span{font-size:23px}.chart-inner small{font-size:9px;letter-spacing:.13em;color:#bcd1bf}.results-chart-copy{position:relative}.micro-label{font-size:10px;letter-spacing:.17em;color:#d8b779;font-weight:700}.results-chart-copy h3{font:700 clamp(24px,3vw,38px) 'Space Grotesk',sans-serif;color:#fff;margin:12px 0}.results-chart-copy p{color:#c6d7c9;line-height:1.8}.legend{display:flex;gap:23px;flex-wrap:wrap;font-size:12px;color:#e3e9df;margin-top:23px}.legend span{display:flex;align-items:center;gap:9px}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%}.legend .confirmed{background:#d8b779}.legend .rejected{background:#54755c}
+.footer{background:#102b22;padding:38px 35px}.footer-inner{max-width:1168px;margin:auto;display:flex;align-items:center;gap:28px;justify-content:space-between;text-align:left}.footer-logo{font:700 36px 'Space Grotesk',sans-serif;letter-spacing:-.08em;color:#f9f6e9}.footer p{color:#b2c4b7;font-size:12px;line-height:1.8}.footer a{color:#dfbd83;font-size:11px;text-decoration:none;letter-spacing:.1em;font-weight:700}
+@keyframes orbit{to{transform:rotate(360deg)}}@keyframes st arturn{to{transform:rotate(360deg)}}@keyframes starturn{to{transform:rotate(360deg)}}
+@media(max-width:1000px){.hero-inner{grid-template-columns:1fr;gap:15px;padding-top:72px}.hero-visual{max-width:410px;margin:15px auto 40px}.hero h1{justify-content:flex-start}.hero-bottom{padding-left:30px;padding-right:30px}.flow{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.hero-inner{padding:58px 24px 25px}.hero-name{font-size:clamp(83px,22vw,135px)}.hero-ar{font-size:30px!important}.hero h1{gap:12px}.hero-lead{font-size:27px}.hero-description{font-size:14px!important}.hero-visual{max-width:310px}.hero-bottom{padding:17px 24px}.hero-bottom span:last-child{display:none}.nav{gap:17px;padding:12px 20px}.nav-brand{position:sticky;left:0;background:#f7f5ee;padding-right:10px}.section{padding:58px 0}.section h2{font-size:33px}main{padding:0 20px 70px}.grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.step{min-height:115px}.results-visual{grid-template-columns:1fr;gap:15px;padding:29px 22px}.chart-ring{width:200px;height:200px}.chart-inner{width:148px;height:148px}.footer-inner{flex-wrap:wrap;gap:12px}.footer p{width:100%;order:3}.team-grid{grid-template-columns:1fr 1fr}.team-card{padding:17px;min-height:210px}.team-card h3{font-size:15px}.linkedin-link{font-size:11px;padding:11px 7px}.visual-label{font-size:8px;padding:9px}.hero-tags{margin-top:30px}}
+@media(max-width:400px){.team-grid{grid-template-columns:1fr}.hero-name{font-size:78px}.hero-ar{font-size:26px!important}.hero-visual{max-width:270px}}
+@media(prefers-reduced-motion:reduce){.visual-orbit,.hero-star{animation:none!important}}
+@media print{.hero{min-height:unset}.hero-inner{min-height:unset}.hero-visual{display:none}.hero{background:#102b22!important;print-color-adjust:exact}.results-visual{break-inside:avoid}}
+</style><style>
+/* One-tap team access */
+.nav{align-items:center;gap:17px}.nav .nav-contact{margin-left:auto;flex-shrink:0;background:#214d38;color:#fff!important;border:1px solid #d6b47d;border-radius:999px;padding:9px 17px;font-weight:800;box-shadow:0 4px 14px #153b2922;transition:background .2s,transform .2s}.nav .nav-contact:hover,.nav .nav-contact:focus-visible{background:#376c4c;transform:translateY(-2px)}
+.hero-contact{background:#f4eee0;color:#193e2b;border:1px solid #d8b979;text-decoration:none;font-weight:800;padding:15px 22px;border-radius:7px;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,background .2s}.hero-contact:hover,.hero-contact:focus-visible{background:#fff9e9;transform:translateY(-3px)}
+.team-card:target{outline:3px solid #d6b47d}#team{scroll-margin-top:85px}
+@media(max-width:750px){.nav .nav-contact{position:sticky;right:0;margin-left:auto;padding:9px 13px;background:#214d38;box-shadow:-10px 0 16px #f7f5ee}.hero-actions{gap:12px}.hero-contact{padding:13px 15px}}
+</style><link href="rsd-logo.jpg" rel="icon" type="image/jpeg"/><style>
+/* RSD official logo and accessible progressive-disclosure sections */
+.hero-visual{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:350px;max-width:540px!important;animation:none!important;filter:none!important}
+.hero-official-logo{display:block;width:100%;height:auto;max-height:370px;object-fit:contain;filter:drop-shadow(0 25px 40px #0005);border-radius:12px}
+.logo-caption{font-size:10px;letter-spacing:.25em;color:#d5b87c;font-weight:700}
+.nav-brand{display:inline-flex!important;align-items:center;gap:9px;letter-spacing:0!important}
+.nav-logo{width:53px;height:36px;object-fit:contain;background:#050706;border-radius:5px}
+.nav-wordmark{font-size:18px;color:#17392d!important}
+.footer-brand-image{width:138px;max-height:72px;object-fit:contain;object-position:left center;border-radius:6px}
+.section{scroll-margin-top:90px}
+.section-details{margin-top:18px}
+.section-toggle{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 23px;border:1px solid #cdd9c8;border-radius:12px;background:#e9efe6;color:#1a4a34;font-weight:800;transition:background .2s,box-shadow .2s;user-select:none}
+.section-toggle::-webkit-details-marker{display:none}
+.section-toggle:hover,.section-toggle:focus-visible{background:#dce9d9;box-shadow:0 5px 18px #183a2614;outline-offset:3px}
+.toggle-chevron{display:grid;place-items:center;border-radius:50%;width:32px;height:32px;background:#214c37;color:#fff;font-size:24px;font-weight:400;transition:transform .25s}
+.section-details[open] .toggle-chevron{transform:rotate(45deg)}
+.section-details[open] .toggle-label{font-size:0}
+.section-details[open] .toggle-label:after{content:'Hide details';font-size:15px}
+.section-content{padding-top:25px;animation:sectionReveal .25s ease both}
+@keyframes sectionReveal{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.hero-visual{min-height:180px!important;max-width:340px!important}.hero-official-logo{max-height:210px}.section-toggle{padding:14px 17px}.nav-logo{width:42px;height:30px}.nav-wordmark{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.section-content,.toggle-chevron{animation:none;transition:none}}
+</style><style>
+/* RSD / METRO FUTURE — immersive editorial redesign */
+:root{--cream:#f4f2e9;--ink:#172e26;--green:#173f30;--green2:#327357;--orange:#e0b875}
+body{background:#f4f2e9;background-image:radial-gradient(ellipse at 95% 35%,#d6e1cf80,transparent 45%);font-family:Inter,'Segoe UI',Arial,sans-serif}
+.hero{background:radial-gradient(ellipse at 74% 38%,#30624b 0%,transparent 44%),linear-gradient(145deg,#071912,#163c2d 65%,#091e17);min-height:780px}
+.hero:before{background:linear-gradient(90deg,transparent 98%,#a9c9b10d 99%),linear-gradient(0deg,transparent 98%,#a9c9b10d 99%);background-size:58px 58px}
+.hero-inner{min-height:640px;padding-top:86px;padding-bottom:25px;grid-template-columns:1fr .9fr}
+.hero .eyebrow{background:#ffffff0b;backdrop-filter:blur(8px)}
+.hero-lead{font-size:clamp(30px,3.5vw,51px)!important;letter-spacing:-.05em!important;line-height:1.12!important}
+.hero-description{max-width:510px}
+.hero-visual{position:relative;transform:translateY(-10px)}
+.hero-official-logo{border:1px solid #ffffff25;border-radius:22px;padding:16px;background:#01090790;box-shadow:0 30px 100px #0006,0 0 100px #a9d9b015}
+.hero-bottom{border-top:1px solid #ffffff24}
+.nav{backdrop-filter:blur(22px);background:#f8f8f0ed!important;border-bottom:1px solid #c9d5c8;box-shadow:0 8px 28px #071e1110}
+.nav a:not(.nav-contact):hover{color:#a47c3d}
+main{max-width:1250px}
+.section{position:relative;padding:72px 0;border-color:#cdd7cb}
+.section-overline{color:#9a7b47}
+.section h2{font-size:clamp(30px,4.4vw,56px);letter-spacing:-.055em}
+.section-details{border:1px solid #d5ddcf;border-radius:22px;overflow:hidden;background:#fffdf8;box-shadow:0 15px 45px #173c2a0b}
+.section-toggle{border:0;border-radius:0;background:linear-gradient(100deg,#f9faf4,#eaf1e8);padding:22px 26px;font-size:15px}
+.section-toggle:hover{background:#e5eee4}
+.section-content{padding:26px 28px 35px}
+.card,.team-card{background:#fffef9;border:1px solid #d9e1d6;box-shadow:0 12px 38px #173c2a0b}
+.card{border-radius:20px}
+.team-card{border-radius:24px}
+.team-card:hover{transform:translateY(-7px)}
+.hero-button,.hero-contact,.nav-contact{transition:transform .25s,box-shadow .25s!important}
+.hero-button:hover,.hero-contact:hover{box-shadow:0 15px 40px #0004}
+.metro-stage{position:relative;overflow:hidden;height:270px;background:linear-gradient(180deg,#0b251d,#102f25 65%,#081c16);border-top:1px solid #b9d3b138;border-bottom:1px solid #b9d3b138;isolation:isolate}
+.metro-stage:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 90px,#ffffff0a 91px 92px),linear-gradient(0deg,transparent 65%,#c0cfa00c 66%);opacity:.7}
+.metro-stage:after{content:'';position:absolute;inset:auto 0 0;height:50px;background:linear-gradient(180deg,transparent,#030e0a70)}
+.metro-label{position:absolute;z-index:3;left:max(25px,calc((100vw - 1160px)/2));top:25px;color:#b8d4be;font-size:10px;letter-spacing:.22em;font-weight:700}
+.metro-label strong{display:block;color:#f6f1de;font-size:clamp(15px,2.1vw,23px);letter-spacing:-.02em;margin-top:5px}
+.metro-route{position:absolute;bottom:57px;left:0;right:0;height:2px;background:#d8ba7a;box-shadow:0 0 13px #e9c98390}
+.metro-route:after{content:'';position:absolute;top:9px;left:0;right:0;height:2px;background:#89a99670}
+.metro-station{position:absolute;bottom:52px;width:12px;height:12px;border-radius:50%;border:3px solid #d4b77d;background:#102b20;z-index:2}
+.metro-station.s1{left:15%}.metro-station.s2{left:48%}.metro-station.s3{left:81%}
+.metro-station span{position:absolute;top:18px;left:-34px;color:#a9c1b0;font-size:9px;letter-spacing:.1em;white-space:nowrap}
+.metro-train{position:absolute;bottom:69px;left:0;width:min(580px,78vw);height:105px;z-index:2;animation:trainCruise 17s linear infinite;filter:drop-shadow(0 14px 15px #0009)}
+.train-body{position:absolute;inset:0;background:linear-gradient(180deg,#f7f6ed 0 20%,#c9d9ce 21% 69%,#244f3d 70% 83%,#e0e7dc 84%);border-radius:44px 65px 13px 13px;border:2px solid #fff;overflow:hidden}
+.train-body:before{content:'';position:absolute;left:6%;right:8%;top:12px;height:9px;border-radius:10px;background:#184d37}
+.train-front{position:absolute;right:0;top:0;width:25%;height:75%;border-radius:12px 64px 9px 9px;background:linear-gradient(130deg,#23483b,#061b17 80%);border:4px solid #eaf1e8}
+.train-front:after{content:'';position:absolute;right:13px;bottom:11px;width:14px;height:8px;background:#f8d29a;border-radius:5px;box-shadow:0 0 18px #f4c889}
+.train-window{position:absolute;top:26px;width:15%;height:32px;background:linear-gradient(135deg,#0c322d,#3c7967);border:3px solid #e5f0e8;border-radius:7px}
+.train-window.w1{left:7%}.train-window.w2{left:26%}.train-window.w3{left:45%}
+.train-door{position:absolute;top:24px;left:65%;height:62px;width:9%;border:2px solid #a2b7ac;border-radius:4px}
+.train-door:after{content:'';position:absolute;left:50%;top:0;bottom:0;border-left:2px solid #a2b7ac}
+.train-light{position:absolute;left:17px;bottom:10px;color:#0b3d2a;font-weight:900;font-size:13px;letter-spacing:.12em}
+.train-wheel{position:absolute;bottom:-8px;width:28px;height:18px;background:#0b1714;border-radius:0 0 10px 10px}
+.train-wheel.a{left:18%}.train-wheel.b{right:20%}
+@keyframes trainCruise{0%{transform:translateX(-110%)}100%{transform:translateX(calc(100vw + 40px))}}
+.metro-shimmer{position:absolute;bottom:82px;left:-30%;width:50%;height:90px;background:linear-gradient(90deg,transparent,#d6b97d10,transparent);transform:skewX(-30deg);animation:lightSweep 12s linear infinite}
+@keyframes lightSweep{to{left:130%}}
+.metro-status{position:absolute;z-index:3;right:max(25px,calc((100vw - 1160px)/2));top:36px;color:#e6d6a8;font-size:11px;letter-spacing:.14em}
+.metro-status:before{content:'●';color:#9de2ae;margin-right:8px;animation:signalBlink 2s infinite}
+@keyframes signalBlink{50%{opacity:.25}}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .65s,transform .65s}
+.reveal.in-view{opacity:1;transform:none}
+@media(max-width:750px){.hero{min-height:auto}.hero-inner{padding:70px 24px 30px;grid-template-columns:1fr}.hero-visual{margin-top:15px;max-width:370px!important}.hero-official-logo{max-height:230px}.metro-stage{height:240px}.metro-train{height:80px;bottom:66px}.train-window{top:21px;height:22px}.train-door{top:19px;height:48px}.train-front{height:75%}.metro-status{top:72px;left:25px;right:auto}.section{padding:52px 0}.section-content{padding:18px}.hero-name{font-size:clamp(84px,18vw,130px)}}
+@media(prefers-reduced-motion:reduce){.metro-train,.metro-shimmer,.metro-status:before{animation:none!important}.metro-train{transform:translateX(12vw)}.reveal{opacity:1;transform:none;transition:none}}
+</style><style>
+/* Compact navigation-first section library */
+html{scroll-behavior:smooth;scroll-padding-top:94px}
+.nav{position:sticky;top:0;z-index:100;display:flex;gap:12px;overflow-x:auto;scrollbar-width:thin;padding:12px max(16px,calc((100vw - 1250px)/2))!important;align-items:center}
+.nav>a{white-space:nowrap;flex-shrink:0}
+.nav-brand{margin-right:12px}
+.nav-contact{margin-left:auto}
+main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;padding-top:60px!important;padding-bottom:80px!important;align-items:start}
+main>.section{margin:0!important;padding:22px!important;min-width:0;border:1px solid #d9e1d6!important;border-radius:24px;background:linear-gradient(145deg,#fffef9,#edf3e9);box-shadow:0 12px 30px #123b2710;transition:box-shadow .3s,border-color .3s,transform .3s;scroll-margin-top:105px}
+main>.section:hover{border-color:#b3c9b6!important;box-shadow:0 18px 40px #123b271c;transform:translateY(-2px)}
+main>.section:has(details[open]){grid-column:1/-1;border-color:#9fbca7!important;background:#fffef9;transform:none}
+main>.section .section-overline{font-size:10px;letter-spacing:.13em;margin-bottom:12px}
+main>.section h2{font-size:clamp(21px,2.2vw,30px)!important;line-height:1.2!important;letter-spacing:-.035em!important;margin:0 0 18px!important}
+main>.section:has(details[open]) h2{font-size:clamp(27px,3.3vw,43px)!important}
+main>.section .section-details{margin:0!important;box-shadow:none;border-radius:12px}
+main>.section .section-toggle{padding:12px 17px;background:#e8eee6;font-size:13px}
+main>.section .section-toggle:hover{background:#d9e9d8}
+main>.section .section-content{padding:28px 22px}
+main>.section .section-details[open] .section-content{animation:sectionAppear .28s ease both}
+@keyframes sectionAppear{from{opacity:.3;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.nav a.is-active{color:#b58a47!important}
+.nav-logo{object-fit:contain;background:#0b120e;border-radius:5px;padding:3px}
+.nav-contact{background:#1d4d38!important;color:white!important}
+@media(max-width:760px){main{grid-template-columns:1fr;gap:12px;padding:28px 15px 55px!important}main>.section{padding:19px!important}main>.section:has(details[open]){grid-column:auto}main>.section h2{font-size:23px!important}.nav{gap:16px;padding:10px 14px!important}.nav-contact{margin-left:0}main>.section .section-content{padding:18px 14px}}
+</style><style>
+main.metro-map{position:relative;isolation:isolate;gap:42px 64px!important;padding:95px 38px 110px!important;background:radial-gradient(ellipse at 10% 30%,#d8e6d7a0,transparent 44%),radial-gradient(ellipse at 90% 70%,#e8e2d0a0,transparent 40%);border-radius:35px}
+.metro-map-title{grid-column:1/-1;position:relative;z-index:3;text-align:center;margin:0 0 16px}
+.metro-map-title .micro{display:block;color:#a17f4a;font-size:11px;letter-spacing:.26em;font-weight:800;margin-bottom:9px}
+.metro-map-title h2{font-size:clamp(32px,4.4vw,57px);letter-spacing:-.065em;color:#153d2b;margin:0}
+.metro-map-title p{color:#607669;font-size:14px;margin:10px auto 0;max-width:520px}
+.metro-route-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible;pointer-events:none}
+main.metro-map>.section{z-index:2;position:relative;overflow:visible!important;background:#fffef9f2!important;border:1px solid #cadbc9!important;border-radius:24px!important;box-shadow:0 15px 36px #143e2b14!important;transition:transform .2s,box-shadow .2s}
+main.metro-map>.section:hover{transform:translateY(-3px)!important;box-shadow:0 22px 42px #143e2b24!important}
+main.metro-map>.section:has(details[open]){grid-column:1/-1!important;background:#fffefa!important;transform:none!important}
+main.metro-map>.section .section-overline{margin-left:55px;margin-bottom:8px!important}
+main.metro-map>.section h2{margin-left:55px!important;margin-top:0!important;min-height:35px;font-size:clamp(18px,2vw,26px)!important}
+main.metro-map>.section .section-details{margin-top:13px!important}
+main.metro-map>.section .section-toggle{background:#eaf2e9!important;border-radius:12px!important}
+main.metro-map>.section:before{content:attr(data-stop);position:absolute;z-index:5;left:18px;top:17px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#143d2d;color:#fff;border:5px solid #f7f6ed;box-shadow:0 0 0 3px #c9a66d,0 6px 18px #1239222e;font-size:12px;font-weight:900}
+main.metro-map>.section:nth-of-type(3n+2):before{background:#b58547}
+main.metro-map>.section:has(details[open]):before{background:#b58547;box-shadow:0 0 0 5px #e8c996,0 0 25px #d3aa6b70}
+.metro-end{grid-column:1/-1;text-align:center;color:#64786b;font-size:11px;letter-spacing:.17em;font-weight:800;position:relative;z-index:2}
+@media(max-width:760px){
+ main.metro-map{grid-template-columns:1fr!important;gap:26px!important;padding:58px 23px 75px!important;border-radius:0}
+ .metro-map-title{margin-bottom:4px}
+ .metro-map-title h2{font-size:34px}
+ main.metro-map>.section:has(details[open]){grid-column:auto!important}
+ main.metro-map>.section .section-overline{margin-left:52px}
+ main.metro-map>.section h2{margin-left:52px!important;font-size:20px!important}
+}
+</style><style>
+.real-map{padding:75px 24px 105px!important;max-width:1100px!important;display:block!important;margin:auto!important}
+.map-head{text-align:center;margin:0 auto 38px;max-width:750px}
+.map-kicker{font-size:11px;letter-spacing:.28em;font-weight:800;color:#a5834d}
+.map-head h2{font-size:clamp(36px,5.6vw,69px);line-height:1.04;letter-spacing:-.065em;color:#143e2c;margin:18px 0}
+.map-head p{font-size:16px;color:#667b6b}
+.map-shell{background:radial-gradient(ellipse at 50% 40%,#1d523e,#071d16 76%);border:1px solid #b89a67;border-radius:35px;overflow:hidden;box-shadow:0 35px 80px #112f2350;position:relative}
+.map-shell:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#c8e4cc08 1px,transparent 1px),linear-gradient(90deg,#c8e4cc08 1px,transparent 1px);background-size:45px 45px}
+.map-legend,.map-bottom{position:relative;display:flex;justify-content:space-between;gap:10px;padding:25px 35px;color:#c4d7c7;font-size:10px;font-weight:800;letter-spacing:.14em}
+.map-legend i{display:inline-block;width:26px;height:4px;border-radius:4px;background:#d5b478;vertical-align:middle;margin-right:10px}
+.map-bottom{border-top:1px solid #ffffff1c;color:#b9d1be}
+.map-bottom span{color:#e7c68d}
+.route-diagram{position:relative;width:100%;height:auto;display:block;overflow:visible}
+.rail-glow{stroke:#d6b474;stroke-width:22;opacity:.22;fill:none;filter:url(#glow)}
+.rail-back{stroke:#092c21;stroke-width:24;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.rail-front{stroke:url(#railGradient);stroke-width:13;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.rail-center{stroke:#e2eacb;stroke-width:2;opacity:.6;fill:none;stroke-dasharray:9 14}
+.station{cursor:pointer;outline:none;transition:opacity .2s}
+.station-halo{fill:#0d2d22;stroke:#a8c7aa;stroke-width:1;opacity:.8}
+.station-ring{fill:#f4f4e8;stroke:#d5b574;stroke-width:5;transition:stroke-width .2s,fill .2s}
+.station-core{fill:#174d36;transition:fill .2s}
+.station-num{fill:#fff;font-size:19px;font-weight:900;font-family:Arial,sans-serif;pointer-events:none}
+.station-name{fill:#fff9e9;font-size:22px;font-weight:700;font-family:Arial,sans-serif;pointer-events:none}
+.station:hover .station-ring,.station:focus .station-ring{stroke-width:10;fill:#d8c08c}
+.station:hover .station-core,.station:focus .station-core{fill:#bc8b49}
+.station:focus-visible .station-halo{stroke:#fff;stroke-width:5}
+.train-orb{filter:drop-shadow(0 0 9px #ffe8a6);pointer-events:none}
+.station-modal[hidden]{display:none!important}
+.station-modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px}
+.modal-backdrop{position:absolute;inset:0;background:#06140fe8;backdrop-filter:blur(10px)}
+.modal-panel{position:relative;z-index:1;background:#fffdf6;color:#193b2b;border-radius:24px;box-shadow:0 40px 110px #0008;width:min(850px,100%);max-height:90vh;overflow:auto;padding:32px 35px 25px}
+.modal-top,.modal-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#9d7945;font-size:11px;font-weight:800;letter-spacing:.12em}
+.modal-close{font-size:32px;background:#e9f0e7;color:#143e2c;border:0;border-radius:50%;width:46px;height:46px;cursor:pointer}
+.modal-panel h2{font-size:clamp(28px,4vw,46px);line-height:1.1;letter-spacing:-.045em;margin:12px 0 22px}
+#modal-content{font-size:15px;line-height:1.8}
+#modal-content .section-content{display:block!important;padding:0!important}
+#modal-content .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+#modal-content .card{padding:18px}
+.modal-foot{border-top:1px solid #dbe4d8;margin-top:30px;padding-top:18px}
+.modal-done{background:#194b36;color:#fff;border:0;border-radius:30px;padding:12px 20px;font-size:12px;font-weight:700;cursor:pointer}
+body.modal-open{overflow:hidden}
+@media(max-width:700px){.real-map{padding:45px 10px 70px!important}.map-shell{border-radius:19px}.map-legend,.map-bottom{padding:15px 13px;font-size:8px}.station-name{font-size:22px}.modal-panel{padding:20px 17px;max-height:92vh}.station-modal{padding:9px}.modal-foot{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.train-orb{display:none}}
+</style><style>.station{cursor:pointer}.station:hover .station-halo{stroke:#e9d29a;stroke-width:4}.real-map{scroll-margin-top:15px}</style><style>
+.quick-access{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:30px 0 0;max-width:660px;position:relative;z-index:4}
+.quick-tile{min-height:154px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:#f8f5e9!important;padding:17px 16px 15px;border:1px solid #d3c38b66;border-radius:16px;background:linear-gradient(145deg,#ffffff14,#ffffff06);backdrop-filter:blur(12px);position:relative;transition:transform .2s,background .2s,box-shadow .2s,border-color .2s}
+.quick-tile:hover,.quick-tile:focus-visible{transform:translateY(-6px);border-color:#e9d19a;box-shadow:0 16px 32px #0004;background:#d8b97825}
+.quick-icon{font-size:24px;line-height:1;color:#e7c78d}
+.quick-copy{display:flex;flex-direction:column;gap:3px}
+.quick-copy small{font-size:9px;letter-spacing:.12em;color:#c4d5c3;font-weight:800}
+.quick-copy strong{font-size:clamp(14px,1.3vw,18px);letter-spacing:-.025em;line-height:1.25}
+.quick-copy em{font-style:normal;font-size:11px;color:#c3d2c4}
+.quick-arrow{position:absolute;right:15px;top:13px;color:#e7c78d}
+.quick-team{background:linear-gradient(145deg,#d7b77535,#d7b77510);border-color:#dfbd7b}
+@media(max-width:1100px){.quick-access{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.quick-access{gap:8px;margin-top:25px}.quick-tile{padding:13px 9px;min-height:140px;border-radius:12px}.quick-copy strong{font-size:13px}.quick-copy small{font-size:8px}.quick-copy em{font-size:9px}.quick-icon{font-size:20px}.quick-arrow{right:9px;top:8px}.hero-tags{margin-top:22px}}
+@media(max-width:380px){.quick-access{grid-template-columns:1fr}.quick-tile{min-height:80px;flex-direction:row;align-items:center;gap:15px}.quick-copy{flex:1}.quick-arrow{position:static}}
+</style><style>
+/* Streamlined hero: three quick actions only, no logo placeholder or decorative strips */
+.hero{min-height:unset!important}
+.hero-inner{display:block!important;min-height:unset!important;max-width:1160px!important;padding:76px 42px 80px!important}
+.hero-copy{max-width:950px!important}
+.hero-lead{max-width:700px!important}
+.hero-description{max-width:760px!important}
+.quick-access{max-width:810px!important;gap:15px!important}
+.quick-tile{min-height:145px!important}
+.real-map{padding-top:60px!important}
+.train-on-map{pointer-events:none;filter:drop-shadow(0 5px 5px #000a)}
+.train-on-map .car-body{fill:#f7f5e9;stroke:#c6d5c9;stroke-width:2}
+.train-on-map .car-band{fill:#2a7954}
+.train-on-map .car-window{fill:#103b31;stroke:#87b7a3;stroke-width:1}
+.train-on-map .car-front{fill:#0c2922;stroke:#dce9dc;stroke-width:2}
+.train-on-map .car-light{fill:#f9ce8a;filter:drop-shadow(0 0 4px #f7c26e)}
+@media(max-width:650px){.hero-inner{padding:54px 20px 56px!important}.quick-access{gap:8px!important}.quick-tile{min-height:137px!important}.real-map{padding-top:40px!important}}
+@media(prefers-reduced-motion:reduce){.train-on-map animateMotion{display:none}}
+</style><style>
+.station-hit{cursor:pointer;pointer-events:all}
+.station-name,.station-num{pointer-events:none}
+.station-modal:not([hidden]){display:grid!important;visibility:visible!important;opacity:1!important}
+.station-modal:not([hidden]) .modal-panel{display:block!important;visibility:visible!important;opacity:1!important}
+#modal-content .team-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:14px}
+#modal-content .team-card{min-width:0}
+#modal-content .linkedin-link{display:inline-flex;align-items:center;justify-content:center;gap:7px}
+#modal-content .linkedin-link svg{width:17px;height:17px;fill:currentColor}
+#modal-content a{overflow-wrap:anywhere}
+#modal-content .section-content{display:block!important;visibility:visible!important;opacity:1!important}
+</style><style>
+.station-link{cursor:pointer}
+.station-link .station-hit{pointer-events:all;cursor:pointer}
+.station-link:focus-visible .station-ring{stroke:#fff;stroke-width:9}
+.station-link:hover .station-ring{stroke:#fff;stroke-width:8}
+.rsd-panel{display:none;position:fixed;inset:0;z-index:100000;overflow-y:auto;padding:22px;align-items:center;justify-content:center}
+.rsd-panel:target{display:flex}
+.rsd-panel .rsd-overlay{position:fixed;inset:0;background:#041810e8;backdrop-filter:blur(10px);z-index:0}
+.rsd-panel .rsd-content{position:relative;z-index:1;background:#fffdf6;color:#163c2c;border-radius:25px;width:min(880px,100%);max-height:90vh;overflow-y:auto;padding:30px 34px;box-shadow:0 30px 95px #0008}
+.rsd-panel .rsd-panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.rsd-panel .rsd-panel-tag{font-size:11px;font-weight:800;letter-spacing:.18em;color:#a17b45}
+.rsd-panel .rsd-close{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#e6efe6;color:#16432e;font-size:29px;text-decoration:none;flex-shrink:0}
+.rsd-panel h2{font-size:clamp(29px,4vw,45px);line-height:1.1;letter-spacing:-.04em;margin:15px 0 25px}
+.rsd-panel .section-content{display:block!important;opacity:1!important;visibility:visible!important;padding:0!important}
+.rsd-panel .team-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.rsd-panel .team-card{min-width:0}
+.rsd-panel .linkedin-link{display:inline-flex;align-items:center;gap:8px}
+.rsd-panel .linkedin-link svg{width:17px;height:17px;fill:currentColor}
+.rsd-panel a{overflow-wrap:anywhere}
+.rsd-panel .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.rsd-panel .card{padding:18px}
+.rsd-panel .rsd-bottom-close{display:inline-block;margin-top:25px;background:#174a34;color:#fff;padding:12px 19px;border-radius:25px;text-decoration:none;font-size:13px;font-weight:700}
+@media(max-width:700px){.rsd-panel{padding:9px}.rsd-panel .rsd-content{padding:19px 16px;max-height:94vh}.rsd-panel .team-grid{grid-template-columns:1fr 1fr;gap:8px}.rsd-panel .team-card{padding:12px}.rsd-panel h2{font-size:28px}}
+</style><style>.train-on-map{filter:drop-shadow(0 5px 7px #000a);pointer-events:none}.train-on-map > g{pointer-events:none}@media(prefers-reduced-motion:reduce){.train-on-map{opacity:1}}</style></head><body>
+<header class="hero" id="top"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span> SAIF 2026 / RESEARCH PROTOTYPE</div><div class="hero-kicker">INTELLIGENT METRO MONITORING</div><h1><span class="hero-name">RSD<span class="hero-star">✳</span></span><span class="hero-ar" dir="rtl" lang="ar">رَصَد</span></h1><p class="hero-lead">A smarter perspective on metro safety.</p><p class="hero-description">An AI-assisted monitoring and trip-based decision support system, designed to connect potential violations with human-verified operational decisions.</p><div aria-label="Quick access to important project information" class="quick-access">
+<a class="quick-tile quick-project" href="#panel-overview"><span aria-hidden="true" class="quick-icon">✦</span><span class="quick-copy"><small>01 / DISCOVER</small><strong>About RSD</strong><em>Project overview</em></span><span aria-hidden="true" class="quick-arrow">↗</span></a>
+<a class="quick-tile quick-results" href="#panel-results"><span aria-hidden="true" class="quick-icon">◉</span><span class="quick-copy"><small>02 / EVIDENCE</small><strong>Our Results</strong><em>Explore the findings</em></span><span aria-hidden="true" class="quick-arrow">↗</span></a>
+<a class="quick-tile quick-team" href="#panel-team"><span aria-hidden="true" class="quick-icon">↗</span><span class="quick-copy"><small>03 / CONNECT</small><strong>Contact Our Team</strong><em>LinkedIn profiles</em></span><span aria-hidden="true" class="quick-arrow">↗</span></a>
+</div></div></div></header>
+<main class="real-map" id="metro-map">
+<div class="map-head"><span class="map-kicker">RSD / THE JOURNEY</span><h2>Explore RSD through the metro.</h2><p>10 stations. One intelligent journey. Select any station to explore the project.</p></div>
+<div class="map-shell">
+<div class="map-legend"><span><i></i> INTERACTIVE METRO LINE</span><span>● SELECT A STATION</span></div>
+<svg aria-label="Interactive RSD metro route with ten stations" class="route-diagram" role="group" viewbox="0 0 1000 1040">
+<defs><lineargradient id="railGradient" x1="0" x2="1"><stop offset="0" stop-color="#1c7453"></stop><stop offset=".5" stop-color="#d1ad6e"></stop><stop offset="1" stop-color="#1c7453"></stop></lineargradient><filter id="glow"><fegaussianblur stddeviation="5"></fegaussianblur></filter></defs>
+<path class="rail-glow" d="M220 120 H770 Q850 120 850 200 V240 Q850 320 770 320 H220 Q140 320 140 400 V440 Q140 520 220 520 H770 Q850 520 850 600 V640 Q850 720 770 720 H220 Q140 720 140 800 V840 Q140 920 220 920 H770"></path>
+<path class="rail-back" d="M220 120 H770 Q850 120 850 200 V240 Q850 320 770 320 H220 Q140 320 140 400 V440 Q140 520 220 520 H770 Q850 520 850 600 V640 Q850 720 770 720 H220 Q140 720 140 800 V840 Q140 920 220 920 H770"></path>
+<path class="rail-front" d="M220 120 H770 Q850 120 850 200 V240 Q850 320 770 320 H220 Q140 320 140 400 V440 Q140 520 220 520 H770 Q850 520 850 600 V640 Q850 720 770 720 H220 Q140 720 140 800 V840 Q140 920 220 920 H770"></path>
+<path class="rail-center" d="M220 120 H770 Q850 120 850 200 V240 Q850 320 770 320 H220 Q140 320 140 400 V440 Q140 520 220 520 H770 Q850 520 850 600 V640 Q850 720 770 720 H220 Q140 720 140 800 V840 Q140 920 220 920 H770"></path>
+<a aria-label="Open overview details" class="station-link" href="#panel-overview"><g aria-label="Open Project Overview details" class="station" data-target="overview">
+<circle class="station-halo" cx="220" cy="120" r="40"></circle>
+<circle class="station-ring" cx="220" cy="120" r="29"></circle>
+<circle class="station-core" cx="220" cy="120" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="220" y="126">01</text>
+<text class="station-name" text-anchor="start" x="277" y="127"><tspan dy="0" x="277">Project Overview</tspan></text>
+<circle class="station-hit" cx="220" cy="120" fill="transparent" r="58"></circle></g></a><a aria-label="Open architecture details" class="station-link" href="#panel-architecture"><g aria-label="Open System Architecture" class="station" data-target="architecture">
+<circle class="station-halo" cx="770" cy="120" r="40"></circle>
+<circle class="station-ring" cx="770" cy="120" r="29"></circle>
+<circle class="station-core" cx="770" cy="120" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="770" y="126">02</text>
+<text class="station-name" text-anchor="end" x="713" y="127"><tspan dy="0" x="713">System Architecture</tspan></text>
+<circle class="station-hit" cx="770" cy="120" fill="transparent" r="58"></circle></g></a><a aria-label="Open ai details" class="station-link" href="#panel-ai"><g aria-label="Open AI Models" class="station" data-target="ai">
+<circle class="station-halo" cx="770" cy="320" r="40"></circle>
+<circle class="station-ring" cx="770" cy="320" r="29"></circle>
+<circle class="station-core" cx="770" cy="320" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="770" y="326">03</text>
+<text class="station-name" text-anchor="end" x="713" y="327"><tspan dy="0" x="713">AI Models</tspan></text>
+<circle class="station-hit" cx="770" cy="320" fill="transparent" r="58"></circle></g></a><a aria-label="Open hardware details" class="station-link" href="#panel-hardware"><g aria-label="Open Hardware Prototype" class="station" data-target="hardware">
+<circle class="station-halo" cx="220" cy="320" r="40"></circle>
+<circle class="station-ring" cx="220" cy="320" r="29"></circle>
+<circle class="station-core" cx="220" cy="320" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="220" y="326">04</text>
+<text class="station-name" text-anchor="start" x="277" y="327"><tspan dy="0" x="277">Hardware Prototype</tspan></text>
+<circle class="station-hit" cx="220" cy="320" fill="transparent" r="58"></circle></g></a><a aria-label="Open workflow details" class="station-link" href="#panel-workflow"><g aria-label="Open Trip Workflow" class="station" data-target="workflow">
+<circle class="station-halo" cx="220" cy="520" r="40"></circle>
+<circle class="station-ring" cx="220" cy="520" r="29"></circle>
+<circle class="station-core" cx="220" cy="520" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="220" y="526">05</text>
+<text class="station-name" text-anchor="start" x="277" y="527"><tspan dy="0" x="277">Trip Workflow</tspan></text>
+<circle class="station-hit" cx="220" cy="520" fill="transparent" r="58"></circle></g></a><a aria-label="Open review details" class="station-link" href="#panel-review"><g aria-label="Open Human Verification" class="station" data-target="review">
+<circle class="station-halo" cx="770" cy="520" r="40"></circle>
+<circle class="station-ring" cx="770" cy="520" r="29"></circle>
+<circle class="station-core" cx="770" cy="520" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="770" y="526">06</text>
+<text class="station-name" text-anchor="end" x="713" y="527"><tspan dy="0" x="713">Human Verification</tspan></text>
+<circle class="station-hit" cx="770" cy="520" fill="transparent" r="58"></circle></g></a><a aria-label="Open results details" class="station-link" href="#panel-results"><g aria-label="Open Results &amp; Evaluation" class="station" data-target="results">
+<circle class="station-halo" cx="770" cy="720" r="40"></circle>
+<circle class="station-ring" cx="770" cy="720" r="29"></circle>
+<circle class="station-core" cx="770" cy="720" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="770" y="726">07</text>
+<text class="station-name" text-anchor="end" x="713" y="727"><tspan dy="0" x="713">Results &amp; Evaluation</tspan></text>
+<circle class="station-hit" cx="770" cy="720" fill="transparent" r="58"></circle></g></a><a aria-label="Open privacy details" class="station-link" href="#panel-privacy"><g aria-label="Open Privacy &amp; Future" class="station" data-target="privacy">
+<circle class="station-halo" cx="220" cy="720" r="40"></circle>
+<circle class="station-ring" cx="220" cy="720" r="29"></circle>
+<circle class="station-core" cx="220" cy="720" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="220" y="726">08</text>
+<text class="station-name" text-anchor="start" x="277" y="727"><tspan dy="0" x="277">Privacy &amp; Future</tspan></text>
+<circle class="station-hit" cx="220" cy="720" fill="transparent" r="58"></circle></g></a><a aria-label="Open team details" class="station-link" href="#panel-team"><g aria-label="Open Meet the Team" class="station" data-target="team">
+<circle class="station-halo" cx="220" cy="920" r="40"></circle>
+<circle class="station-ring" cx="220" cy="920" r="29"></circle>
+<circle class="station-core" cx="220" cy="920" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="220" y="926">09</text>
+<text class="station-name" text-anchor="start" x="277" y="927"><tspan dy="0" x="277">Meet the Team</tspan></text>
+<circle class="station-hit" cx="220" cy="920" fill="transparent" r="58"></circle></g></a><a aria-label="Open references details" class="station-link" href="#panel-references"><g aria-label="Open References" class="station" data-target="references">
+<circle class="station-halo" cx="770" cy="920" r="40"></circle>
+<circle class="station-ring" cx="770" cy="920" r="29"></circle>
+<circle class="station-core" cx="770" cy="920" r="21"></circle>
+<text class="station-num" text-anchor="middle" x="770" y="926">10</text>
+<text class="station-name" text-anchor="end" x="713" y="927"><tspan dy="0" x="713">References</tspan></text>
+<circle class="station-hit" cx="770" cy="920" fill="transparent" r="58"></circle></g></a>
+<g aria-hidden="true" class="train-on-map"><g transform="translate(-77,-28)">
+<path d="M10 7 H127 Q139 7 147 17 L151 28 L151 42 Q150 46 145 46 H9 Q4 46 4 40 V17 Q4 7 10 7Z" fill="#f8f8f0" stroke="#e5eadf" stroke-width="3"></path>
+<path d="M12 11 H128 Q139 11 145 22 L146 31 H8 V18 Q8 11 12 11Z" fill="#e5efe6"></path>
+<path d="M7 34 H150 V41 Q150 45 145 45 H10 Q7 45 7 42Z" fill="#1b684c"></path>
+<path d="M8 31 H149" stroke="#c49a5e" stroke-width="3"></path>
+<rect fill="#0b352c" height="14" rx="3" width="22" x="14" y="15"></rect><rect fill="#0b352c" height="14" rx="3" width="21" x="41" y="15"></rect>
+<rect fill="#f7f6ed" height="27" rx="2" stroke="#648b76" stroke-width="2" width="15" x="69" y="14"></rect><path d="M76.5 14 V41" stroke="#648b76" stroke-width="1.5"></path>
+<rect fill="#0b352c" height="14" rx="3" width="21" x="90" y="15"></rect>
+<path d="M119 15 H131 Q141 16 144 28 H119Z" fill="#0b352c"></path>
+<path d="M14 15 L18 15 L14 25Z M43 15 L47 15 L43 25Z M92 15 L96 15 L92 25Z" fill="#92c5b4" opacity=".6"></path>
+<rect fill="#ffda90" height="4" rx="2" width="7" x="140" y="34"></rect>
+<path d="M21 46 V49 H39 V46 M113 46 V49 H131 V46" stroke="#101e19" stroke-linecap="round" stroke-width="5"></path>
+<text fill="#ffffff" font-family="Arial,sans-serif" font-size="7" font-weight="bold" letter-spacing="1" x="49" y="40">RSD METRO</text>
+</g><animatemotion dur="30s" path="M220 120 H770 Q850 120 850 200 V240 Q850 320 770 320 H220 Q140 320 140 400 V440 Q140 520 220 520 H770 Q850 520 850 600 V640 Q850 720 770 720 H220 Q140 720 140 800 V840 Q140 920 220 920 H770" repeatcount="indefinite" rotate="auto"></animatemotion></g></svg>
+<div class="map-bottom">START YOUR JOURNEY <span>RSD • 2026</span> EXPLORE EVERY STATION</div></div>
+</main>
+<section aria-label="Project Overview" class="rsd-panel" id="panel-overview"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 01</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>Project Overview</h2><div class="section-content"><p class="intro">RSD is a functional prototype designed to assist metro supervisors in identifying potential passenger violations, such as eating, drinking, and sitting on the floor. The system combines video-based candidate detection with trip-linked records and human verification. Its purpose is decision support, not autonomous enforcement or automatic penalties.</p><div class="grid"><div class="card"><h3>Problem</h3><p>Continuous CCTV monitoring can require sustained manual attention; isolated visual alerts may lack a clear connection to a passenger's active trip.</p></div><div class="card"><h3>Proposed Approach</h3><p>Provide a smarter, safer metro environment through an integrated monitoring and trip-management solution that helps identify potential passenger violations early, supports fair human oversight, and improves the consistency of operational decisions without relying on facial recognition.</p></div><div class="card"><h3>Core Contribution</h3><p>Integrate trip-based evidence tracking, AI-assisted monitoring, and human-reviewed exit decisions without facial recognition.</p></div></div></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="System Architecture" class="rsd-panel" id="panel-architecture"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 02</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>System Architecture</h2><div class="section-content"><div class="flow"><div class="step">RFID Scan<small>RC522 / Arduino</small></div><div class="step">Trip Record<small>Server + Database</small></div><div class="step">Camera Analysis<small>C01 detection</small></div><div class="step">Evidence Link<small>Trip ID + time</small></div><div class="step">Human Review<small>Confirm / Reject</small></div><div class="step">Exit Guidance<small>LCD output</small></div></div><h3>Prototype Components</h3><div class="tablewrap"><table><tr><th>Component</th><th>Role</th></tr><tr><td>C01 — Detection camera</td><td>Analyzes the video feed for potential eating, drinking, and floor-sitting incidents.</td></tr><tr><td>C02 — RFID entry camera</td><td>Captures an entry snapshot associated with a newly created trip during the configured time window; it is not the primary violation-detection feed.</td></tr><tr><td>Backend and database</td><td>Manage RFID events, trip states, detection events, incidents, and supervisor decisions.</td></tr><tr><td>Supervisor dashboard</td><td>Displays pending and reviewed cases and supporting evidence.</td></tr><tr><td>Arduino + LCD</td><td>Accepts card scans and displays trip and exit guidance messages.</td></tr></table></div><p class="note">The two camera roles above describe the latest reported prototype configuration. The system is not represented here as a production metro deployment.</p></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="AI Models" class="rsd-panel" id="panel-ai"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 03</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>AI Models</h2><div class="section-content"><div class="grid"><div class="card"><h3>COCO-SSD</h3><p>Object detection used to locate people and supported object categories in camera frames. It does not directly recognize the act of drinking or eating.</p></div><div class="card"><h3>MoveNet</h3><p>Human pose estimation used to derive body keypoints that can help evaluate spatial relationships and postures.</p></div><div class="card"><h3>Temporal / Spatial Rules</h3><p>Heuristic rules combine detected objects, pose cues, proximity, and observations across frames to flag candidate incidents for review.</p></div></div><h3>Monitored Behaviors</h3><ul><li><strong>Drinking:</strong> Candidate signals include a cup or bottle associated with a person and near relevant hand/face regions, with temporal context where available.</li><li><strong>Eating:</strong> Candidate signals combine relevant food/object evidence with hand/face proximity and available temporal cues.</li><li><strong>Floor sitting:</strong> Candidate signals use pose and posture-related evidence to identify possible sitting on the floor.</li></ul><div class="warning"><strong>Interpretation:</strong> These are AI-assisted candidate detections, not independently validated action-classification probabilities. A displayed confidence value should not be interpreted as a calibrated probability of an actual rule violation without further validation.</div></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="Hardware Prototype" class="rsd-panel" id="panel-hardware"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 04</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>Hardware Prototype</h2><div class="section-content"><div class="tablewrap"><table><tr><th>Device</th><th>Implementation detail</th></tr><tr><td>Arduino Uno</td><td>Microcontroller for the RFID and LCD prototype.</td></tr><tr><td>MFRC522 / RC522</td><td>RFID reader used with the current Darb-card prototype. Reported Uno wiring: SDA/SS D10, RST D9, MOSI D11, MISO D12, SCK D13; powered at 3.3 V.</td></tr><tr><td>16×2 I²C LCD</td><td>Display module, reported address 0x27; displays scan prompts, active-trip messages, and exit guidance.</td></tr><tr><td>USB / Serial bridge</td><td>Python bridge reads Arduino serial events and sends authenticated requests to the backend.</td></tr><tr><td>iPhone via Camo + laptop camera</td><td>Camera sources used in the prototype setup; their configured roles are documented above.</td></tr></table></div><p>Observed LCD messages in prototype photographs include <strong>Welcome / Trip Active</strong> and <strong>Refer to Staff</strong>. Other outputs depend on the current device firmware and test scenario.</p></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="Trip Workflow" class="rsd-panel" id="panel-workflow"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 05</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>Trip Workflow</h2><div class="section-content"><ol><li><strong>Entry:</strong> An RFID scan creates or identifies an active trip record with a unique Trip ID.</li><li><strong>Entry evidence:</strong> C02 may capture a time-windowed snapshot after trip creation. Missing or late evidence must not be fabricated.</li><li><strong>Detection:</strong> C01 produces potential-violation events, including camera, time, type, and available confidence information.</li><li><strong>Association:</strong> Evidence is linked only when trip and temporal conditions support the association; uncertain cases should remain unlinked or flagged for review.</li><li><strong>Review:</strong> A supervisor confirms or rejects the case.</li><li><strong>Exit:</strong> A subsequent RFID scan checks the same trip for confirmed incidents. No confirmed incident permits exit guidance; a confirmed incident results in staff referral / hold guidance.</li></ol><p class="note">The RFID logic includes duplicate-event handling and accidental-rescan protection. Exact cooldown and matching thresholds are implementation settings and should be verified against the final deployed code before publication as fixed values.</p></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="Human Verification" class="rsd-panel" id="panel-review"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 06</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>Human Verification</h2><div class="section-content"><p>Potential violations enter the dashboard for review. Supervisors can mark a case <strong>Confirmed</strong> or <strong>Rejected</strong>. Only confirmed incidents associated with the relevant trip affect the exit decision. The system does not automatically issue fines.</p><div class="grid"><div class="card"><h3>Pending</h3><p>Alert awaiting supervisor verification.</p></div><div class="card"><h3>Confirmed</h3><p>Reviewed and accepted by a supervisor; may influence trip exit guidance.</p></div><div class="card"><h3>Rejected</h3><p>Reviewed and dismissed; should not trigger an incident-based exit hold.</p></div></div></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="Results &amp; Evaluation" class="rsd-panel" id="panel-results"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 07</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>Results &amp; Evaluation</h2><div class="section-content"><p>The prototype dashboard recorded <strong>122 detection alerts</strong>. Of these, <strong>108 were confirmed</strong> and <strong>14 were rejected</strong> during supervisor review. The project reports an <strong>88.5% confirmation rate</strong> for these recorded alerts.</p><div class="grid"><div class="card"><div class="number">122</div><strong>Total recorded alerts</strong></div><div class="card"><div class="number">108</div><strong>Confirmed · Reported 88.5%</strong></div><div class="card"><div class="number">14</div><strong>Rejected (11.5%)</strong></div></div><div class="results-visual"><div aria-label="Of 122 reviewed alerts, 108 were confirmed and 14 rejected" class="results-chart" role="img"><div class="chart-ring"><div class="chart-inner"><strong>88.5<span>%</span></strong><small>CONFIRMED ALERTS</small></div></div></div><div class="results-chart-copy"><span class="micro-label">REVIEW DISTRIBUTION / 122 ALERTS</span><h3>From detection to decision.</h3><p>108 alerts confirmed and 14 rejected during supervisor review. The 88.5% figure represents the reviewed-alert confirmation percentage, not an independently validated model accuracy benchmark.</p><div class="legend"><span><i class="confirmed"></i> Confirmed / 108</span><span><i class="rejected"></i> Rejected / 14</span></div></div></div><div class="warning"><strong>Reported result — 88.5%:</strong> This is the dashboard-based confirmation percentage (108 confirmed alerts ÷ 122 reviewed alerts). The project team refers to this as its reported accuracy figure. Its calculation describes the reviewed alerts; independently validated model accuracy, recall and F1 require additional ground-truth evaluation, including missed violations.</div><h3>Demonstrated Prototype Functions</h3><ul><li>RFID card scan and Trip ID creation.</li><li>Camera-based candidate detection and dashboard case review.</li><li>Trip-linked evidence handling under matching conditions.</li><li>LCD display of trip and staff-referral guidance.</li></ul><p>These are functional prototype observations, not evidence of real-world metro deployment, measured response-time improvement, or validated detection accuracy.</p></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="Privacy &amp; Future" class="rsd-panel" id="panel-privacy"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 08</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>Privacy &amp; Future</h2><div class="section-content"><h3>Privacy and Decision Support</h3><p>The prototype is designed around trip identifiers rather than facial recognition. Human review is retained before confirmed incidents affect exit guidance. This design choice does not by itself establish compliance with all applicable privacy requirements.</p><h3>Current Limitations</h3><ul><li>Heuristic action signals may produce false positives and miss real actions.</li><li>Camera viewpoint, lighting, occlusion, and passenger crowding can affect detection.</li><li>Temporal matching does not guarantee that a detected person corresponds to the RFID card holder.</li><li>Reported results reflect a controlled prototype, not a field trial in an operating metro system.</li><li>The 88.5% dashboard figure is based on reviewed alerts; a separate ground-truth benchmark is needed to quantify missed detections and independently evaluate precision, recall, and F1.</li></ul><h3>Future Integration — Bank Cards</h3><p>The current physical prototype uses <strong>Darb metro cards</strong> for RFID-based trip demonstrations. A future development goal is to support compatible <strong>bank-card-based metro access and payment workflows</strong>, subject to authorized payment-system integration, security requirements, and operator approval. This functionality has not been implemented in the current prototype.</p><h3>Next Evaluation Steps</h3><ul><li>Collect labeled positive and negative scenarios for each violation category.</li><li>Compute per-category confusion matrices and Precision, Recall, and F1.</li><li>Test multiple viewpoints, crowded scenes, and camera synchronization.</li><li>Evaluate privacy safeguards and operational authorization before any real deployment.</li></ul></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="Meet the Team" class="rsd-panel" id="panel-team"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 09</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>Meet the Team</h2><div class="section-content"><p class="intro">Meet the contributors behind RSD. Connect with the team on LinkedIn to learn more about their work and professional interests.</p><div class="team-grid"><article class="team-card"><div aria-hidden="true" class="team-avatar">MB</div><h3>Marym Bamohaimoud</h3><a aria-label="View Marym Bamohaimoud on LinkedIn" class="linkedin-link" href="https://www.linkedin.com/in/marym-bamohaimoud-802abb23b" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"></path></svg>View LinkedIn Profile</a></article><article class="team-card"><div aria-hidden="true" class="team-avatar">FA</div><h3>Fajr Aldahmash</h3><a aria-label="View Fajr Aldahmash on LinkedIn" class="linkedin-link" href="https://www.linkedin.com/in/fajr-aldahmash-10b6792a7" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"></path></svg>View LinkedIn Profile</a></article><article class="team-card"><div aria-hidden="true" class="team-avatar">SA</div><h3>Sarah Alharthi</h3><a aria-label="View Sarah Alharthi on LinkedIn" class="linkedin-link" href="https://www.linkedin.com/in/sarah-alharthi-05290138b" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"></path></svg>View LinkedIn Profile</a></article><article class="team-card"><div aria-hidden="true" class="team-avatar">HH</div><h3>Haifa Heshbal</h3><a aria-label="View Haifa Heshbal on LinkedIn" class="linkedin-link" href="https://www.linkedin.com/in/haifa-turki-40a092393" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"></path></svg>View LinkedIn Profile</a></article><article class="team-card"><div aria-hidden="true" class="team-avatar">SA</div><h3>Sahar Algethami</h3><a aria-label="View Sahar Algethami on LinkedIn" class="linkedin-link" href="https://www.linkedin.com/in/sahar-algethami-374329279" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"></path></svg>View LinkedIn Profile</a></article></div></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section><section aria-label="References" class="rsd-panel" id="panel-references"><a aria-label="Close" class="rsd-overlay" href="#metro-map"></a><div class="rsd-content"><div class="rsd-panel-head"><span class="rsd-panel-tag">RSD / STATION 10</span><a aria-label="Close" class="rsd-close" href="#metro-map">×</a></div><h2>References</h2><div class="section-content"><p>Official technical documentation for components and models referenced in this prototype. These links support implementation descriptions; they are not presented as evidence of the prototype's measured performance.</p><div class="ref"><strong>TensorFlow.js — Machine Learning for JavaScript</strong><a href="https://www.tensorflow.org/js" rel="noopener noreferrer" target="_blank">https://www.tensorflow.org/js</a></div><div class="ref"><strong>TensorFlow.js COCO-SSD model</strong><a href="https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd" rel="noopener noreferrer" target="_blank">Official model repository</a></div><div class="ref"><strong>TensorFlow.js Pose Detection / MoveNet</strong><a href="https://github.com/tensorflow/tfjs-models/tree/master/pose-detection" rel="noopener noreferrer" target="_blank">Official model repository</a></div><div class="ref"><strong>Arduino Uno Rev3 documentation</strong><a href="https://docs.arduino.cc/hardware/uno-rev3/" rel="noopener noreferrer" target="_blank">Official Arduino documentation</a></div><div class="ref"><strong>MFRC522 Arduino library</strong><a href="https://github.com/miguelbalboa/rfid" rel="noopener noreferrer" target="_blank">Library repository</a></div><div class="ref"><strong>Express web framework</strong><a href="https://expressjs.com/" rel="noopener noreferrer" target="_blank">Official documentation</a></div><p class="note">Any scholarly DOI citations previously used on the references page should be retained only after verifying their titles, authors, and relevance against the original sources. No unverified paper citations have been added here.</p></div><a class="rsd-bottom-close" href="#metro-map">Close station</a></div></section></body></html>
