@@ -1,265 +1,66 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" dir="ltr">
+  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Scientific references supporting the RSD smart transit monitoring project.">
-  <title>RSD | Scientific References</title>
-
-  <style>
-    :root {
-      --green: #124d3b;
-      --green-light: #eaf4ef;
-      --gold: #c5a46a;
-      --white: #ffffff;
-      --text: #24362f;
-      --muted: #65766d;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f6f9f7;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    header {
-      background: linear-gradient(135deg, #103f32, #206c50);
-      color: white;
-      text-align: center;
-      padding: 65px 20px 55px;
-    }
-
-    .logo {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,.45);
-      padding: 9px 25px;
-      border-radius: 40px;
-      font-size: 15px;
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-    }
-
-    header h1 {
-      font-size: clamp(30px, 6vw, 48px);
-      margin: 0;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      color: #d5e9df;
-      max-width: 560px;
-      margin: 15px auto 0;
-    }
-
-    main {
-      max-width: 900px;
-      margin: -25px auto 65px;
-      padding: 0 20px;
-      position: relative;
-    }
-
-    .intro, .reference {
-      background: white;
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 24px rgba(10,50,35,.07);
-    }
-
-    .intro {
-      border-top: 4px solid var(--gold);
-    }
-
-    h2 {
-      color: var(--green);
-      margin-top: 0;
-    }
-
-    .reference {
-      border-left: 5px solid var(--green);
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .reference:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(10,50,35,.11);
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--green-light);
-      color: var(--green);
-      font-size: 12px;
-      font-weight: bold;
-      padding: 5px 12px;
-      border-radius: 30px;
-      margin-bottom: 10px;
-    }
-
-    .reference h3 {
-      font-size: 21px;
-      margin: 5px 0 12px;
-      line-height: 1.4;
-    }
-
-    .citation {
-      font-size: 14px;
-      color: var(--muted);
-      overflow-wrap: anywhere;
-    }
-
-    .description {
-      margin: 15px 0 20px;
-    }
-
-    .link {
-      display: inline-block;
-      background: var(--green);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .link:hover, .link:focus-visible {
-      background: #247454;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px 20px;
-      background: #eaf1ed;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    @media (max-width: 600px) {
-      header { padding: 45px 18px; }
-      .intro, .reference { padding: 22px; }
-      .reference h3 { font-size: 18px; }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <div class="logo">RSD | رَصَد</div>
-    <h1>Scientific References</h1>
-    <p>
-      Research supporting AI-assisted human action recognition,
-      computer vision, and performance evaluation
-      for intelligent public transportation monitoring.
-    </p>
-  </header>
-
-  <main>
-    <section class="intro">
-      <h2>About RSD</h2>
-      <p>
-        RSD is a prototype intelligent monitoring system
-        designed to identify potential public transportation
-        violations, including eating, drinking, and sitting
-        on the floor.
-      </p>
-      <p>
-        The system combines camera-based detection,
-        RFID trip identification, and human verification
-        to support monitoring decisions.
-      </p>
-      <p>
-        The following publications provide scientific
-        background relevant to the project's research
-        direction. They do not necessarily represent
-        models implemented in the current prototype.
-      </p>
-    </section>
-
-    <article class="reference">
-      <span class="tag">01 | Human Action Recognition</span>
-      <h3>
-        NTU RGB+D 120: A Large-Scale Benchmark
-        for 3D Human Activity Understanding
-      </h3>
-      <p class="citation">
-        J. Liu et al., IEEE Transactions on Pattern
-        Analysis and Machine Intelligence, 2020.
-      </p>
-      <p class="description">
-        A large-scale benchmark for recognizing human
-        activities, including eating, drinking, and
-        sitting-related actions. It provides research
-        background for understanding human behavior
-        from visual and motion information.
-      </p>
-      <a class="link"
-         href="https://doi.org/10.1109/TPAMI.2019.2916873"
-         target="_blank"
-         rel="noopener noreferrer">
-        Read Research
-      </a>
-    </article>
-
-    <article class="reference">
-      <span class="tag">02 | Pose Estimation</span>
-      <h3>
-        Realtime Multi-Person 2D Pose Estimation
-        Using Part Affinity Fields
-      </h3>
-      <p class="citation">
-        Z. Cao, T. Simon, S.-E. Wei, and Y. Sheikh,
-        IEEE CVPR, 2017.
-      </p>
-      <p class="description">
-        This research presents an approach for estimating
-        body joint positions for multiple people in images.
-        Pose information can support the analysis of
-        human movement and posture.
-      </p>
-      <a class="link"
-         href="https://doi.org/10.1109/CVPR.2017.143"
-         target="_blank"
-         rel="noopener noreferrer">
-        Read Research
-      </a>
-    </article>
-
-    <article class="reference">
-      <span class="tag">03 | Performance Evaluation</span>
-      <h3>
-        A Systematic Analysis of Performance
-        Measures for Classification Tasks
-      </h3>
-      <p class="citation">
-        M. Sokolova and G. Lapalme,
-        Information Processing & Management, 2009.
-      </p>
-      <p class="description">
-        This paper examines evaluation measures
-        for classification systems. It supports the
-        selection of metrics such as Precision,
-        Recall, and F1-score for future controlled
-        evaluation of RSD.
-      </p>
-      <a class="link"
-         href="https://doi.org/10.1016/j.ipm.2009.03.002"
-         target="_blank"
-         rel="noopener noreferrer">
-        Read Research
-      </a>
-    </article>
-  </main>
-
-  <footer>
-    RSD | رَصَد
-    <p>Scientific Research References | 2026</p>
-  </footer>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RSD: AI-assisted metro violation detection, RFID trip management, human review, prototype results, and references.">
+    <title>RSD | Project Documentation & References</title>
+    <style>
+:root{--green:#174b36;--green2:#2c7655;--cream:#f8faf5;--ink:#192c23;--muted:#5b6e64;--line:#dbe7dd;--orange:#dc9741}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,Arial,sans-serif}a{color:var(--green2)}.hero{background:linear-gradient(125deg,#103e2d,#286c4c);color:#fff;padding:52px max(24px,calc((100vw - 1100px)/2)) 48px}.eyebrow{letter-spacing:.13em;font-size:12px;font-weight:700;color:#c7e9d2}.hero h1{font-size:clamp(32px,5vw,58px);margin:10px 0}.hero p{max-width:750px;color:#e2f0e6}.pill{display:inline-block;border:1px solid #a7cbb6;border-radius:99px;padding:5px 13px;font-size:13px;margin:7px 8px 0 0}.nav{position:sticky;top:0;z-index:3;background:#fff;box-shadow:0 2px 14px #193b2a12;overflow:auto;white-space:nowrap;padding:13px max(24px,calc((100vw - 1100px)/2));display:flex;gap:20px}.nav a{text-decoration:none;font-size:13px;font-weight:650;color:var(--green)}main{max-width:1100px;margin:auto;padding:28px 24px 70px}.section{padding:24px 0;border-bottom:1px solid var(--line);scroll-margin-top:65px}.section h2{font-size:26px;color:var(--green);margin:0 0 14px}.section h3{font-size:18px;margin:16px 0 6px}.intro{max-width:850px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:0 4px 15px #163c2610}.card h3{margin:0 0 6px;color:var(--green)}.number{font-size:40px;font-weight:800;line-height:1.15;color:var(--green)}.note{background:#edf4ec;border-left:4px solid var(--green2);padding:13px 17px;border-radius:6px;margin:15px 0}.warning{background:#fff7e9;border-left:4px solid var(--orange);padding:13px 17px;border-radius:6px;margin:15px 0}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.step{background:#e7f0e9;border:1px solid #d2e4d5;border-radius:12px;padding:13px 8px;text-align:center;font-size:13px;font-weight:700}.step small{display:block;font-weight:400;margin-top:4px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;background:#fff;border-radius:10px;overflow:hidden}td,th{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#e6efe8;color:var(--green)}ul{padding-left:22px}li{margin-bottom:7px}.ref{padding:14px 0;border-bottom:1px solid var(--line)}.ref strong{display:block}.footer{padding:25px;text-align:center;background:#123d2d;color:#d9e8dd;font-size:13px}@media(max-width:750px){.grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.hero{padding:34px 24px}.section h2{font-size:23px}}@media print{.nav{display:none}.hero{background:#174b36!important;print-color-adjust:exact}.card{break-inside:avoid}}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:20px}.team-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 16px #193b2a0a}.team-avatar{display:grid;place-items:center;background:#e9f2e9;color:var(--green);border-radius:13px;width:46px;height:46px;font-size:20px;font-weight:800}.team-card h3{margin:3px 0 0;color:var(--green);font-size:18px}.team-ar{color:var(--muted);font-size:14px}.linkedin-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding:10px 13px;border-radius:9px;background:var(--green);color:#fff;text-decoration:none;font-size:13px;font-weight:700;justify-content:center}.linkedin-link:hover,.linkedin-link:focus-visible{background:var(--green2)}.linkedin-link svg{width:16px;height:16px;fill:currentColor}
+/* RSD 2026 visual refresh */
+:root{--green:#173e32;--green2:#55785c;--cream:#f6f4ec;--ink:#1e3028;--muted:#657268;--line:#e4e5d9;--orange:#c99a52}
+body{background:radial-gradient(ellipse 65% 20% at 100% 0%,#e8e9d7 0%,transparent 100%),var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:-.012em}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 85% 5%,#567c5d 0%,transparent 36%),linear-gradient(125deg,#102c25,#244b37 70%,#32553c);padding-top:90px;padding-bottom:90px;border-bottom:5px solid #c7a16a}
+.hero:after{content:'RSD';position:absolute;right:-.02em;bottom:-.35em;font-size:clamp(150px,30vw,430px);font-weight:900;letter-spacing:-.12em;color:#ffffff08;pointer-events:none}
+.hero h1{font-size:clamp(55px,9vw,104px);line-height:1.02;letter-spacing:-.065em;position:relative;z-index:1}
+.hero h1 span{font-size:.43em;letter-spacing:0;color:#d7e2d5}
+.hero p{font-size:clamp(16px,1.8vw,21px);max-width:780px;position:relative;z-index:1}
+.hero p:first-of-type{color:#fff}
+.eyebrow{color:#d7bf89;font-size:12px;letter-spacing:.2em}
+.pill{border-color:#b3bba2;color:#f0ead7;background:#ffffff0c;backdrop-filter:blur(4px)}
+.nav{background:#fbfaf5eF;backdrop-filter:blur(18px);border-bottom:1px solid var(--line);box-shadow:0 5px 22px #1c34230a;gap:25px}
+.nav a{transition:color .2s}.nav a:hover{color:#b0833e}
+main{max-width:1180px;padding-top:18px}
+.section{padding:62px 0;scroll-margin-top:76px}
+.section h2{font-size:clamp(27px,3.5vw,40px);letter-spacing:-.045em;margin-bottom:23px;line-height:1.18}
+.section h2:first-letter{color:#b88a4a}
+.section h3{font-size:19px;letter-spacing:-.025em}
+.intro,.section>p{font-size:16.5px;line-height:1.85}
+.grid{gap:18px}.card{border-radius:21px;padding:27px;background:linear-gradient(145deg,#fff,#fcfcf7);box-shadow:0 13px 30px #253e2c0b;transition:transform .2s,box-shadow .2s;border:1px solid #e6e9dc}
+.card:hover,.team-card:hover{transform:translateY(-4px);box-shadow:0 20px 35px #253e2c17}
+.card h3{font-size:20px}.number{font-size:clamp(48px,6vw,76px);letter-spacing:-.06em;color:#234e3a}
+#results .card:nth-child(2){background:linear-gradient(150deg,#234b38,#356e4d);border-color:#234b38;color:white}
+#results .card:nth-child(2) .number{color:#f4d8a0}
+#results .card strong{font-size:14px}
+.step{border-radius:16px;padding:19px 10px;background:#e9eee4;border:1px solid #d7e0d1;position:relative}
+.step:before{content:'';display:block;width:7px;height:7px;background:#b9945a;border-radius:50%;margin:0 auto 10px}
+.step small{color:#647569}
+.note{border-radius:12px;background:#e8eee3;border-left-color:#52775d;padding:18px 22px}
+.warning{border-radius:12px;background:#fbf2e3;border-left-color:#c69a5a;padding:18px 22px}
+.tablewrap{border:1px solid #e0e7da;border-radius:17px;overflow:auto;box-shadow:0 10px 25px #253e2c09}
+table{border-radius:17px}th{background:#dfe9dd}td,th{padding:17px 19px}
+.team-card{border-radius:21px;padding:27px;transition:transform .2s,box-shadow .2s;box-shadow:0 13px 30px #253e2c0b}
+.team-avatar{height:58px;width:58px;border-radius:17px;background:#e5ebdf;font-size:22px}
+.linkedin-link{background:#1c4d38;border-radius:12px;padding:13px 16px}
+.ref{background:#fff;border:1px solid #e4e8dd;border-radius:13px;padding:18px 20px;margin-bottom:11px;overflow-wrap:anywhere}
+.footer{padding:36px;background:#112d25}
+@media(max-width:750px){.hero{padding:60px 24px 65px}.section{padding:42px 0}.grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:23px}.hero:after{font-size:180px;bottom:-.2em}.nav{gap:19px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<header class="hero"><div class="eyebrow">RESEARCH PROJECT · TECHNICAL DOCUMENTATION</div><h1>RSD <span style="font-weight:400">| رَصَد</span></h1><p><strong>Intelligent Metro Monitoring &amp; Trip-Based Case Management</strong></p><p>An integrated research prototype combining camera-based AI alerts, RFID trip records, supervisor verification, and LCD-based exit guidance.</p><span class="pill">Track the Trip, Not the Identity</span><span class="pill">Human-in-the-Loop</span><span class="pill">Prototype · Controlled Testing</span><span class="pill">Darb Card Prototype</span></header>
+<nav class="nav"><a href="#overview">Overview</a><a href="#architecture">Architecture</a><a href="#ai">AI</a><a href="#hardware">Hardware</a><a href="#workflow">Trip Workflow</a><a href="#review">Review</a><a href="#results">Results</a><a href="#privacy">Limitations</a><a href="#team">Our Team</a><a href="#references">References</a></nav>
+<main>
+<section class="section" id="overview"><h2>01 / Project Overview</h2><p class="intro">RSD is a functional prototype designed to assist metro supervisors in identifying potential passenger violations, such as eating, drinking, and sitting on the floor. The system combines video-based candidate detection with trip-linked records and human verification. Its purpose is decision support, not autonomous enforcement or automatic penalties.</p><div class="grid"><div class="card"><h3>Problem</h3><p>Continuous CCTV monitoring can require sustained manual attention; isolated visual alerts may lack a clear connection to a passenger's active trip.</p></div><div class="card"><h3>Proposed Approach</h3><p>Provide a smarter, safer metro environment through an integrated monitoring and trip-management solution that helps identify potential passenger violations early, supports fair human oversight, and improves the consistency of operational decisions without relying on facial recognition.</p></div><div class="card"><h3>Core Contribution</h3><p>Integrate trip-based evidence tracking, AI-assisted monitoring, and human-reviewed exit decisions without facial recognition.</p></div></div></section>
+<section class="section" id="architecture"><h2>02 / System Architecture</h2><div class="flow"><div class="step">RFID Scan<small>RC522 / Arduino</small></div><div class="step">Trip Record<small>Server + Database</small></div><div class="step">Camera Analysis<small>C01 detection</small></div><div class="step">Evidence Link<small>Trip ID + time</small></div><div class="step">Human Review<small>Confirm / Reject</small></div><div class="step">Exit Guidance<small>LCD output</small></div></div><h3>Prototype Components</h3><div class="tablewrap"><table><tr><th>Component</th><th>Role</th></tr><tr><td>C01 — Detection camera</td><td>Analyzes the video feed for potential eating, drinking, and floor-sitting incidents.</td></tr><tr><td>C02 — RFID entry camera</td><td>Captures an entry snapshot associated with a newly created trip during the configured time window; it is not the primary violation-detection feed.</td></tr><tr><td>Backend and database</td><td>Manage RFID events, trip states, detection events, incidents, and supervisor decisions.</td></tr><tr><td>Supervisor dashboard</td><td>Displays pending and reviewed cases and supporting evidence.</td></tr><tr><td>Arduino + LCD</td><td>Accepts card scans and displays trip and exit guidance messages.</td></tr></table></div><p class="note">The two camera roles above describe the latest reported prototype configuration. The system is not represented here as a production metro deployment.</p></section>
+<section class="section" id="ai"><h2>03 / AI Models and Detection Logic</h2><div class="grid"><div class="card"><h3>COCO-SSD</h3><p>Object detection used to locate people and supported object categories in camera frames. It does not directly recognize the act of drinking or eating.</p></div><div class="card"><h3>MoveNet</h3><p>Human pose estimation used to derive body keypoints that can help evaluate spatial relationships and postures.</p></div><div class="card"><h3>Temporal / Spatial Rules</h3><p>Heuristic rules combine detected objects, pose cues, proximity, and observations across frames to flag candidate incidents for review.</p></div></div><h3>Monitored Behaviors</h3><ul><li><strong>Drinking:</strong> Candidate signals include a cup or bottle associated with a person and near relevant hand/face regions, with temporal context where available.</li><li><strong>Eating:</strong> Candidate signals combine relevant food/object evidence with hand/face proximity and available temporal cues.</li><li><strong>Floor sitting:</strong> Candidate signals use pose and posture-related evidence to identify possible sitting on the floor.</li></ul><div class="warning"><strong>Interpretation:</strong> These are AI-assisted candidate detections, not independently validated action-classification probabilities. A displayed confidence value should not be interpreted as a calibrated probability of an actual rule violation without further validation.</div></section>
+<section class="section" id="hardware"><h2>04 / Hardware Prototype</h2><div class="tablewrap"><table><tr><th>Device</th><th>Implementation detail</th></tr><tr><td>Arduino Uno</td><td>Microcontroller for the RFID and LCD prototype.</td></tr><tr><td>MFRC522 / RC522</td><td>RFID reader used with the current Darb-card prototype. Reported Uno wiring: SDA/SS D10, RST D9, MOSI D11, MISO D12, SCK D13; powered at 3.3 V.</td></tr><tr><td>16×2 I²C LCD</td><td>Display module, reported address 0x27; displays scan prompts, active-trip messages, and exit guidance.</td></tr><tr><td>USB / Serial bridge</td><td>Python bridge reads Arduino serial events and sends authenticated requests to the backend.</td></tr><tr><td>iPhone via Camo + laptop camera</td><td>Camera sources used in the prototype setup; their configured roles are documented above.</td></tr></table></div><p>Observed LCD messages in prototype photographs include <strong>Welcome / Trip Active</strong> and <strong>Refer to Staff</strong>. Other outputs depend on the current device firmware and test scenario.</p></section>
+<section class="section" id="workflow"><h2>05 / Trip and Evidence Workflow</h2><ol><li><strong>Entry:</strong> An RFID scan creates or identifies an active trip record with a unique Trip ID.</li><li><strong>Entry evidence:</strong> C02 may capture a time-windowed snapshot after trip creation. Missing or late evidence must not be fabricated.</li><li><strong>Detection:</strong> C01 produces potential-violation events, including camera, time, type, and available confidence information.</li><li><strong>Association:</strong> Evidence is linked only when trip and temporal conditions support the association; uncertain cases should remain unlinked or flagged for review.</li><li><strong>Review:</strong> A supervisor confirms or rejects the case.</li><li><strong>Exit:</strong> A subsequent RFID scan checks the same trip for confirmed incidents. No confirmed incident permits exit guidance; a confirmed incident results in staff referral / hold guidance.</li></ol><p class="note">The RFID logic includes duplicate-event handling and accidental-rescan protection. Exact cooldown and matching thresholds are implementation settings and should be verified against the final deployed code before publication as fixed values.</p></section>
+<section class="section" id="review"><h2>06 / Human Verification and Case Management</h2><p>Potential violations enter the dashboard for review. Supervisors can mark a case <strong>Confirmed</strong> or <strong>Rejected</strong>. Only confirmed incidents associated with the relevant trip affect the exit decision. The system does not automatically issue fines.</p><div class="grid"><div class="card"><h3>Pending</h3><p>Alert awaiting supervisor verification.</p></div><div class="card"><h3>Confirmed</h3><p>Reviewed and accepted by a supervisor; may influence trip exit guidance.</p></div><div class="card"><h3>Rejected</h3><p>Reviewed and dismissed; should not trigger an incident-based exit hold.</p></div></div></section>
+<section class="section" id="results"><h2>07 / Results &amp; Evaluation</h2><p>The prototype dashboard recorded <strong>122 detection alerts</strong>. Of these, <strong>108 were confirmed</strong> and <strong>14 were rejected</strong> during supervisor review. The project reports an <strong>88.5% confirmation rate</strong> for these recorded alerts.</p><div class="grid"><div class="card"><div class="number">122</div><strong>Total recorded alerts</strong></div><div class="card"><div class="number">108</div><strong>Confirmed · Reported 88.5%</strong></div><div class="card"><div class="number">14</div><strong>Rejected (11.5%)</strong></div></div><div class="warning"><strong>Reported result — 88.5%:</strong> This is the dashboard-based confirmation percentage (108 confirmed alerts ÷ 122 reviewed alerts). The project team refers to this as its reported accuracy figure. Its calculation describes the reviewed alerts; independently validated model accuracy, recall and F1 require additional ground-truth evaluation, including missed violations.</div><h3>Demonstrated Prototype Functions</h3><ul><li>RFID card scan and Trip ID creation.</li><li>Camera-based candidate detection and dashboard case review.</li><li>Trip-linked evidence handling under matching conditions.</li><li>LCD display of trip and staff-referral guidance.</li></ul><p>These are functional prototype observations, not evidence of real-world metro deployment, measured response-time improvement, or validated detection accuracy.</p></section>
+<section class="section" id="privacy"><h2>08 / Privacy &amp; Future Development</h2><h3>Privacy and Decision Support</h3><p>The prototype is designed around trip identifiers rather than facial recognition. Human review is retained before confirmed incidents affect exit guidance. This design choice does not by itself establish compliance with all applicable privacy requirements.</p><h3>Current Limitations</h3><ul><li>Heuristic action signals may produce false positives and miss real actions.</li><li>Camera viewpoint, lighting, occlusion, and passenger crowding can affect detection.</li><li>Temporal matching does not guarantee that a detected person corresponds to the RFID card holder.</li><li>Reported results reflect a controlled prototype, not a field trial in an operating metro system.</li><li>The 88.5% dashboard figure is based on reviewed alerts; a separate ground-truth benchmark is needed to quantify missed detections and independently evaluate precision, recall, and F1.</li></ul><h3>Future Integration — Bank Cards</h3><p>The current physical prototype uses <strong>Darb metro cards</strong> for RFID-based trip demonstrations. A future development goal is to support compatible <strong>bank-card-based metro access and payment workflows</strong>, subject to authorized payment-system integration, security requirements, and operator approval. This functionality has not been implemented in the current prototype.</p><h3>Next Evaluation Steps</h3><ul><li>Collect labeled positive and negative scenarios for each violation category.</li><li>Compute per-category confusion matrices and Precision, Recall, and F1.</li><li>Test multiple viewpoints, crowded scenes, and camera synchronization.</li><li>Evaluate privacy safeguards and operational authorization before any real deployment.</li></ul></section>
+<section class="section" id="team"><h2>09 / Meet the RSD Team</h2><p class="intro">Meet the contributors behind RSD. Connect with the team on LinkedIn to learn more about their work and professional interests.</p><div class="team-grid"><article class="team-card"><div class="team-avatar" aria-hidden="true">MB</div><h3>Marym Bamohaimoud</h3><a class="linkedin-link" href="https://www.linkedin.com/in/marym-bamohaimoud-802abb23b" target="_blank" rel="noopener noreferrer" aria-label="View Marym Bamohaimoud on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"/></svg>View LinkedIn Profile</a></article><article class="team-card"><div class="team-avatar" aria-hidden="true">FA</div><h3>Fajr Aldahmash</h3><a class="linkedin-link" href="https://www.linkedin.com/in/fajr-aldahmash-10b6792a7" target="_blank" rel="noopener noreferrer" aria-label="View Fajr Aldahmash on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"/></svg>View LinkedIn Profile</a></article><article class="team-card"><div class="team-avatar" aria-hidden="true">SA</div><h3>Sarah Alharthi</h3><a class="linkedin-link" href="https://www.linkedin.com/in/sarah-alharthi-05290138b" target="_blank" rel="noopener noreferrer" aria-label="View Sarah Alharthi on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"/></svg>View LinkedIn Profile</a></article><article class="team-card"><div class="team-avatar" aria-hidden="true">HH</div><h3>Haifa Heshbal</h3><a class="linkedin-link" href="https://www.linkedin.com/in/haifa-turki-40a092393" target="_blank" rel="noopener noreferrer" aria-label="View Haifa Heshbal on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"/></svg>View LinkedIn Profile</a></article><article class="team-card"><div class="team-avatar" aria-hidden="true">SA</div><h3>Sahar Algethami</h3><a class="linkedin-link" href="https://www.linkedin.com/in/sahar-algethami-374329279" target="_blank" rel="noopener noreferrer" aria-label="View Sahar Algethami on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.77 1.2-1.77 2.44v4.73H9.54V9.2h2.83v1.3h.04c.39-.75 1.36-1.54 2.8-1.54 2.99 0 3.54 1.97 3.54 4.53v5.26z"/></svg>View LinkedIn Profile</a></article></div></section>
+<section class="section" id="references"><h2>10 / Technical References</h2><p>Official technical documentation for components and models referenced in this prototype. These links support implementation descriptions; they are not presented as evidence of the prototype's measured performance.</p><div class="ref"><strong>TensorFlow.js — Machine Learning for JavaScript</strong><a href="https://www.tensorflow.org/js" target="_blank" rel="noopener noreferrer">https://www.tensorflow.org/js</a></div><div class="ref"><strong>TensorFlow.js COCO-SSD model</strong><a href="https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd" target="_blank" rel="noopener noreferrer">Official model repository</a></div><div class="ref"><strong>TensorFlow.js Pose Detection / MoveNet</strong><a href="https://github.com/tensorflow/tfjs-models/tree/master/pose-detection" target="_blank" rel="noopener noreferrer">Official model repository</a></div><div class="ref"><strong>Arduino Uno Rev3 documentation</strong><a href="https://docs.arduino.cc/hardware/uno-rev3/" target="_blank" rel="noopener noreferrer">Official Arduino documentation</a></div><div class="ref"><strong>MFRC522 Arduino library</strong><a href="https://github.com/miguelbalboa/rfid" target="_blank" rel="noopener noreferrer">Library repository</a></div><div class="ref"><strong>Express web framework</strong><a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">Official documentation</a></div><p class="note">Any scholarly DOI citations previously used on the references page should be retained only after verifying their titles, authors, and relevance against the original sources. No unverified paper citations have been added here.</p></section>
+</main><footer class="footer">RSD | رَصَد · Research prototype documentation · Prepared for SAIF 2026 · Updated November 2026</footer>
 </body>
 </html>
